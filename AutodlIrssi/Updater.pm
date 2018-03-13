@@ -41,7 +41,7 @@ use File::Spec;
 use File::Copy;
 use Archive::Zip qw/ :ERROR_CODES /;
 use constant {
-	AUTODL_UPDATE_URL => 'https://api.github.com/repos/autodl-community/autodl-irssi/releases/latest',
+	AUTODL_UPDATE_URL => 'https://api.github.com/repos/ashmandias/autodl-irssi/releases/latest',
 	TRACKERS_UPDATE_URL => 'https://api.github.com/repos/autodl-community/autodl-trackers/releases/latest',
 	UPDATE_USER_AGENT => 'autodl-irssi',
 };
