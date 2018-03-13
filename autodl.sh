@@ -63,7 +63,7 @@ do
             rutorrentCheck
             pkill -fxu $(whoami) 'SCREEN -dmS autodl irssi' || true
             echo "Getting autodl and the plugin..."
-            wget -qO ~/autodl-irssi.zip $(curl -s https://api.github.com/repos/autodl-community/autodl-irssi/releases/latest | grep 'browser_' | cut -d\" -f4) # get latest tagged release
+            wget -qO ~/autodl-irssi.zip $(curl -s https://api.github.com/repos/ashmandias/autodl-irssi/releases/latest | grep 'browser_' | cut -d\" -f4) # get latest tagged release
             wget -qO ~/autodl-trackers.zip $(curl -s https://api.github.com/repos/autodl-community/autodl-trackers/releases/latest | grep 'browser_' | cut -d\" -f4)
             wget -qO ~/autodl-rutorrent.zip https://github.com/autodl-community/autodl-rutorrent/archive/master.zip # get plugin
             if [[ -f ~/.autodl/autodl.cfg ]]
@@ -82,9 +82,6 @@ do
             echo "Cleaning up..."
             rm -f ~/autodl-irssi.zip ~/.irssi/scripts/{README*,autodl-irssi.pl,CONTRIBUTING.md} ~/autodl-trackers.zip ~/autodl-rutorrent.zip
             echo "Configuring..."
-            sed -i "s|use constant LISTEN_ADDRESS => '127.0.0.1';|use constant LISTEN_ADDRESS => '10.0.0.1';|g" ~/.irssi/scripts/AutodlIrssi/GuiServer.pm
-            sed -i 's|$rtAddress = "127.0.0.1$rtAddress"|$rtAddress = "10.0.0.1$rtAddress"|g' ~/.irssi/scripts/AutodlIrssi/MatchedRelease.pm
-            sed -i 's|my $scgi = new AutodlIrssi::Scgi($rtAddress, {REMOTE_ADDR => "127.0.0.1"});|my $scgi = new AutodlIrssi::Scgi($rtAddress, {REMOTE_ADDR => "10.0.0.1"});|g' ~/.irssi/scripts/AutodlIrssi/MatchedRelease.pm
             sed -i 's|if (!socket_connect($socket, "127.0.0.1", $autodlPort))|if (!socket_connect($socket, "10.0.0.1", $autodlPort))|g' ~/www/"$(whoami)"."$(hostname -f)"/public_html/rutorrent/plugins/autodl-irssi/getConf.php
             portGenerator
             portCheck
