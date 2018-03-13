@@ -189,7 +189,7 @@ use File::Basename;
 use File::Spec;
 
 # The address we listen for connections. Default is 127.0.0.1
-use constant LISTEN_ADDRESS => '127.0.0.1';
+use constant LISTEN_ADDRESS => '10.0.0.1';
 
 sub new {
 	my ($class, $autodlCmd) = @_;
